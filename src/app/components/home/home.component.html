@@ -1,0 +1,111 @@
+<div class="navigation col-lg-12">
+    <!--Navbar-->
+    <nav class="navbar navbar-defautl">
+        <div class="container-fluid">
+
+            <div class="navbar-header ">
+                <a [routerLink]="['/home']" class="navbar-brand">{{title}}</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a [routerLink]="['/home']">
+                        <span class="glyphicon glyphicon-home"> Inicio</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/about']">
+                        <span class="glyphicon glyphicon-user"> Sobre Nosotros</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/contact']">
+                        <span class="glyphicon glyphicon-envelope"> Contáctanos</span>
+                    </a>
+                </li>
+
+                <!--Login y register-->
+                <li class="navbar-right ">
+                    <a [routerLink]="['/login']">
+                        <span class="glyphicon glyphicon-log-in login">
+                     Iniciar sesión
+                </span>
+                    </a>
+                </li>
+
+                <!--Login y register-->
+                <li class="navbar-right ">
+                    <a [routerLink]="['/register']">
+                        <span class="glyphicon glyphicon-user">
+                     Registrarse
+                 </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- END Navbar-->
+    <!--Container-->
+    <div class="container">
+        <!--Información-->
+        <section class="section-information">
+            <div class="grid">
+                <div class="item1">
+                    <img src="../assets/img/Qué-es-una-Empresa-Pequeña-8211-Todo-lo-que-has-de-Saber-639.jpg" alt="">
+                </div>
+
+                <div class="item3">
+                    <h1>Market Online</h1>
+                    <p>
+                        En Market Online podrás publicar toda clase de contenido publicitario, con el fin de que puedas mostrar los productos, servicios que le ofreces a la comunidad de Jutiapa.
+                    </p>
+                    <button type="button" class="btn btn-primary btn-more"><a href="about.html">Ver más</a></button>
+                </div>
+            </div>
+            <!--END Información MARKET ONLINE-->
+
+        </section>
+
+        <section class="section-objet">
+            <!-- oBJETIVO-->
+            <div class="grid">
+                <div class="grid-obj-title">
+                    <h3>Objetivo</h3>
+                    <p>Que cada persona del departamento de Jutiapa pueda ver lo que un negocio ofrece o persona si sabe de algún oficio. Seguido de ello, permitir que los ingresos incrementen con ayuda de la publicidad web. </p>
+                </div>
+                <div class="grid-obj-image">
+                    <img src="./assets/img/publicidad.jpg" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-more">
+            <div class="section-moreinfo">
+                <h2>Más sobre el sitio web</h2>
+                <p>
+                    Si acabas de abrir tu negocio o ya tienes uno y deseas poder mostrar los productos, servicios que ofreces, has ingresado al sitio web adecuado. Además, si eres alguien recién graduado o sabes de algún oficio, también puedes ofrecer tus servicios a la
+                    comunidad de Jutiapa.
+                </p>
+            </div>
+            <div class="section-moreinfo-img">
+                <img src="./assets/img/more.jpg" alt="">
+            </div>
+        </section>
+    </div>
+    <!--Container-->
+
+    <!--Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="footer">
+            © 2021 <strong>Market Online</strong>
+            <p>Derechos Reservados</p>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!--Footer  -->
+</div>

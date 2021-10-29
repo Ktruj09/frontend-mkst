@@ -1,0 +1,66 @@
+<div class="navigation col-lg-12">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="nav-item "><a class="nav-link glyphicon glyphicon-home"> Inicio</a></li>
+                <li class="nav-item"><a class="nav-link glyphicon glyphicon-bullhorn"> Publicaciones</a></li>
+                <li class="nav-item">
+                    <a class="nav-link glyphicon glyphicon-user"> {{identity.name}}</a>
+
+                </li>
+                <li class="nav-item"><a class="nav-link glyphicon glyphicon-log-out pointer" (click)="logout()"> Cerrar Sesión</a></li>
+
+                <li class="nav-item"><a class="nav-link glyphicon glyphicon-pencil" [routerLink]="['/editProfile']"> Editar datos</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div id="user-card" class="col-lg-4 panel-default pull-left ">
+    <div class="avatar">
+        <img src="{{url + 'getImageUser/' + identity.image}}" *ngIf="identity.image" class="avatar">
+        <img src="../../../assets/img/user.png" *ngIf="!identity.image" class="avatar">
+    </div>
+    <div class="name">
+        <a href="#">
+{{identity.name }}
+        </a>
+        <div class="clearfix"></div>
+    </div>
+    <div class="addres">
+        {{identity.address}} </div>
+    <div class="typeUser">
+        {{identity.type_user}}
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<!--Publication-->
+<div id="new-publication" class="col-lg-4 pull-left sidebar-32">
+
+    <!--Alerts-->
+    <div class="alert alert-success" *ngIf="status == 'success'">
+        Publicación realizada exitosamente!
+    </div>
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+        Error al hacer la publicación, vuelve a intentarlo.
+    </div>
+
+    <!--Alerts-->
+
+
+    <form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm)" class="col-lg-10 form">
+
+        <p>
+            <label>¿Que estas pesando hoy?</label>
+            <textarea name="text" #text="ngModel" [(ngModel)]="publication.text" id="" cols="30" rows="10" class="form-control"></textarea>
+        </p>
+
+        <p>
+            <label>Subir imagen</label>
+            <input type="file" placeholder="Subir imagen">
+        </p>
+        <input type="submit" value="Publicar" class="btn btn-success">
+    </form>
+</div>

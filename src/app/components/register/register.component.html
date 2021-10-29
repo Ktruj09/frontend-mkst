@@ -1,0 +1,94 @@
+<div class="navigation col-lg-12">
+    <!--Navbar-->
+    <nav class=" navbar navbar-default ">
+        <div class="container-fluid ">
+
+            <div class="navbar-header ">
+                <a href="# " class="navbar-brand ">{{title}}</a>
+            </div>
+
+            <ul class="nav navbar-nav ">
+                <li>
+                    <a href="# ">
+                        <span class="glyphicon glyphicon-home "> Inicio</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="# ">
+                        <span class="glyphicon glyphicon-user "> Sobre Nosotros</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="# ">
+                        <span class="glyphicon glyphicon-envelope "> Contáctanos</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--Navbar-->
+
+    <!--Form-->
+    <div class="container">
+        <div class="subtitle">
+            <h1>{{subtitle}}</h1>
+        </div>
+
+        <!--Alerts-->
+        <div class="alert alert-success" *ngIf="status == 'success'">
+            Registro completado correctamente!
+            <a [routerLink]="['/login']">Inicia Sesión aquí</a>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="status == 'error'">
+            Error al crear la cuenta, intentalo de nuevo. Ya existe una cuenta asociada con este correo electrónico.
+        </div>
+        <!--Alerts-->
+
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+            <p>
+                <label>Nombre</label>
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" class="form-control" required>
+                <span *ngIf="!name.valid && name.touched" class="requiredT">
+                    El nombre es requerido ingresar.
+                </span>
+            </p>
+
+            <p>
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" #name="ngModel" [(ngModel)]="user.email" class="form-control" required pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Correo Invalido, vuelva a ingresarlo.">
+                <span *ngIf="!name.valid && name.touched" class="requiredT">
+                    El correo electrónico es requerido ingresar.
+                </span>
+            </p>
+
+            <p>
+                <label>Contraseña</label>
+                <input type="password" name="password" #name="ngModel" [(ngModel)]="user.password" class="form-control" required>
+                <span *ngIf="!name.valid && name.touched" class="requiredT">
+                    La contraseña es requerida ingresar.
+                </span>
+            </p>
+
+
+            <p>
+                <label>Dirección</label>
+                <input type="text" name="address" #name="ngModel" [(ngModel)]="user.address" class="form-control" required>
+                <span *ngIf="!name.valid && name.touched" class="requiredT">
+                    La dirección es requerida ingresar. 
+                </span>
+            </p>
+            <p>
+                <label>Tipo de Usuario</label>
+                <input type="text" name="type_user" #name="ngModel" [(ngModel)]="user.type_user" class="form-control" required>
+                <span *ngIf="!name.valid && name.touched" class="requiredT">
+                    La dirección es requerida ingresar. 
+                </span>
+            </p>
+            <input type="submit" value="{{subtitle}}" class="btn btn-success">
+        </form>
+    </div>
+    <!--Form-->
+</div>

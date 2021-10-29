@@ -1,0 +1,76 @@
+<div class="navigation col-lg-12">
+    <!--Navbar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a [routerLink]="['/home']" class="navbar-brand">{{title}}</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li>
+                    <a [routerLink]="['/home']">
+                        <span class="glyphicon glyphicon-home"> Inicio</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/about']">
+                        <span class="glyphicon glyphicon-user"> Sobre Nosotros</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a [routerLink]="['/contact']">
+                        <span class="glyphicon glyphicon-envelope"> Contáctanos</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END Navbar-->
+
+    <!--Container-->
+    <div class="container">
+        <div class="subtitle">
+            <h3>{{subtitle}}</h3>
+        </div>
+
+        <!--Alerts-->
+        <!--Alerts-->
+        <div class="alert alert-success" *ngIf="status == 'success'">
+            Inicio de Sesión correctamente!
+            <a [routerLink]="['/profiles']">Ver Perfil</a>
+        </div>
+
+        <div class="alert alert-danger" *ngIf="status == 'error'">
+            Error al intentar iniciar sesión, vuelve ha intentarlo.
+        </div>
+        <!--Alerts-->
+
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="col-lg-12">
+
+            <p>
+                <label>Correo Electrónico</label>
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" class="form-control" required>
+                <span *ngIf="!email.valid && email.touched" class="requiredT">
+                    
+                    El email es requerido ingresar. 
+                    
+                </span>
+            </p>
+
+            <p>
+                <label>Contraseña</label>
+                <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" class="form-control" required>
+                <span *ngIf="!password.valid && password.touched" class="requiredT">
+                    
+                   Es requerido ingresar la contraseña.
+                    
+                </span>
+            </p>
+            <input type="submit" value="Iniciar Sesión" class="btn btn-success" [disabled]="!loginForm">
+        </form>
+    </div>
+    <!--Container-->
+</div>
